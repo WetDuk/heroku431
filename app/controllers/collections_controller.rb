@@ -10,6 +10,8 @@ class CollectionsController < ApplicationController
         else 
             render('new')
         end
+        javascript_tag(alert('Added Book'))
+        
     end
     
     def new
