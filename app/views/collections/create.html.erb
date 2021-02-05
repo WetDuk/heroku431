@@ -1,0 +1,9 @@
+<%= form_for(@book) do |f| %>
+    <%= f.text_field(:name) %>
+    <%= f.text_field(:author) %>
+    <%= f.text_field(:genre) %>
+    <%= f.text_field(:price) %>
+    <%= f.text_field(:published_date) %>
+
+    <%= f.submit ("Submit Book") %>
+<% end %>
