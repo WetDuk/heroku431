@@ -5,13 +5,12 @@ class CollectionsController < ApplicationController
         @book = Book.new(book_params)
 
         if @book.save
+            redirect_to(collections_path)
+            flash.alert = "Created Book."
 
-            redirect_to('book_collection/index')
         else 
             render('new')
-        end
-        javascript_tag(alert('Added Book'))
-        
+        end        
     end
     
     def new
@@ -20,6 +19,8 @@ class CollectionsController < ApplicationController
 
     def show
         @book = Book.find(params[:id]) 
+        flash.alert = "Showed Book."
+
     end
 
     def index
@@ -29,7 +30,9 @@ class CollectionsController < ApplicationController
     def update
         @book = Book.find(params[:id])
         if @book.update(book_params)
-            redirect_to(collection_path(@book))
+            redirect_to(collections_path)
+            flash.alert = "Updated Book."
+
         else
             render('edit')
         end
@@ -47,6 +50,8 @@ class CollectionsController < ApplicationController
         @book = Book.find(params[:id])
         @book.destroy
         redirect_to(collections_path)
+        flash.notice = "Deleted Book."
+
         
     end
 
