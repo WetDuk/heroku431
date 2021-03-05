@@ -31,7 +31,7 @@ class CollectionsController < ApplicationController
         @book = Book.find(params[:id])
         if @book.update(book_params)
             redirect_to(collections_path)
-            flash.alert = "Updated Book."
+            flash.alert = "Edited Book."
 
         else
             render('edit')
@@ -50,9 +50,7 @@ class CollectionsController < ApplicationController
         @book = Book.find(params[:id])
         @book.destroy
         redirect_to(collections_path)
-        flash.notice = "Deleted Book."
-
-        
+        flash.alert = "Deleted Book."
     end
 
 private
